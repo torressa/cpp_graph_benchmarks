@@ -16,6 +16,9 @@ Original source code from:
 
 https://github.com/stegua/MyBlogEntries/tree/master/Dijkstra
 
+Mean and std from solving each instance 50 times changing the source and sink
+each time. 
+
 | Solvers        | Instance  | Mean  | Std  |
 |----------------|-----------|-------|------|
 | Dijkstra_bgl   | USA-d.W   | 1.822 | 0.15 |
