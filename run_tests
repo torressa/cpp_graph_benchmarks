@@ -1,0 +1,13 @@
+#!/bin/bash
+
+SOLVERS="Dijkstra_bgl Dijkstra_lemon"
+FILES="USA-d.BAY.dat USA-d.CAL.dat USA-d.COL.dat USA-d.E.dat USA-d.FLA.dat USA-d.LKS.dat USA-d.NE.dat USA-d.NW.dat USA-d.NY.dat USA-d.W.dat"
+
+for F in ${FILES}
+do
+   for S in ${SOLVERS}
+   do
+      echo "Running $S for ${F}"
+      ./build/bin/${S} data/${F} > logs/$F-$S.log
+   done
+done

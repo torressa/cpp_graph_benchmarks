@@ -1,0 +1,20 @@
+version: "2.3"
+
+services:
+  dijkstra-benchmark:
+    image: dijkstra-docker
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+      target: run
+      cache_from:
+        - dijkstra-docker:builder
+        - dijkstra-docker:latest
+        - dijkstra-docker:boost
+        - dijkstra-docker:lemon
+        - dijkstra-docker:ortools
+    command: ./run
+    volumes:
+      - ./build/:/root/build/
+      - ../data/:/root/data/
+      - ./logs/:/root/logs/

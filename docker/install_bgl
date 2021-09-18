@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# Download and Install BGL
+
+set -e
+
+# Download Boost
+wget -O boost_1_77_0.tar.gz http://sourceforge.net/projects/boost/files/boost/1.77.0/boost_1_77_0.tar.gz/download
+tar xzvf boost_1_77_0.tar.gz
+cd boost_1_77_0
+./bootstrap.sh --exec-prefix=/usr/local --without-libraries=python
+./b2 threading=multi
+# Install
+./b2 install threading=multi
+# Clearn up
+cd ..
+rm boost_1_77_0.tar.gz
+rm -r boost_1_77_0
